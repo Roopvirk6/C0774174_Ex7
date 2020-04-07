@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
                 ContentDisplay cand = placeList.get(position);
-                Intent iIntent = new Intent(v.getContext(), AttractionsDetailActivity.class);
+                Intent iIntent = new Intent(s.getContext(), AttractionsDetailActivity.class);
                 iIntent.putExtra("Detail", cand);
                 v.getContext().startActivity(iIntent);
                 //textView.setText();
