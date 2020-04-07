@@ -1,5 +1,6 @@
 package com.example.c0774174_ex7.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.c0774174_ex7.ContentDisplay;
 import com.example.c0774174_ex7.R;
 
 public class HomeFragment extends Fragment {
@@ -27,7 +29,11 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                ContentDisplay cand = placeList.get(position);
+                Intent iIntent = new Intent(v.getContext(), AttractionsDetailActivity.class);
+                iIntent.putExtra("Detail", cand);
+                v.getContext().startActivity(iIntent);
+                //textView.setText();
             }
         });
         return root;
